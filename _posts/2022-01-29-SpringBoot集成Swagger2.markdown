@@ -102,14 +102,14 @@ public class ServerConfiguration implements WebMvcConfigurer {
 version: @project.version@
 ```
 
-## 五、请求忽略拦截
+## 五、如果项目中有请求拦截器，需要忽略拦截
 
 ```yaml
 - /swagger-resources/**
 - /v2/api-docs
 ```
 
-## 六、返回值忽略拦截
+## 六、如果项目中有返回值拦截器，返回值忽略拦截
 
 ```yaml
 - springfox.documentation.swagger.*
