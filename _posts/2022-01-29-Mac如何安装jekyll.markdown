@@ -26,13 +26,15 @@ toc: yes # leave empty or erase for no TOC
 1. 安装rvm
 
    ```shell
-   brew install rvm
+   curl -L get.rvm.io | bash -s stable
+   source ~/.bashrc
+   source ~/.bash_profile
    ```
 
 2. 使用rvm安装ruby
 
    ```shell
-   rvm install --head    // 安装最新的ruby软件（我安装的是3.0.0）
+   rvm install ruby-3.0.0   // 安装最新的ruby软件（我安装的是3.0.0）
    ```
 
 3. 切换ruby为我们刚安装的版本
