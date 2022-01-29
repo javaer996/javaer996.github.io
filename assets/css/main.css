@@ -887,7 +887,7 @@ svg.menu-icon-house {
   text-decoration: none;
   font-family: var(--font2), sans-serif;
   font-weight: var(--font2-bold);
-  text-transform: uppercase;
+  text-transform: none;
   color: white;
 }
 .post-card-link:hover {
