@@ -449,16 +449,17 @@ table td, table th {
     background-color: var(--grey5);
 }
 blockquote {
-    border-left: 10px solid #6cf583;
+    border-left: 10px solid var(--grey4);
     padding-left: 1em;
-    margin-left: 0.5em;
+    margin-left: 2.5em;
+    font-style: italic;
     color: var(--accent-dark);
-    background: #d2f5ec9c;
+    background: var(--grey5);
     margin-right: 0;
     font-weight: 100;
 }
 pre {
-  padding: 14px 20px;
+  padding: 16px 32px;
   overflow-x: auto;
   font-family: monospace;
   font-size: 0.75rem;
@@ -1374,6 +1375,7 @@ color: var(--accent);
   border: none;
   -webkit-border-radius: 3px;
   border-radius: 3px;
+  padding: 0.1rem 0.5rem;
   line-height: 1.1;
 }
 
@@ -1487,7 +1489,7 @@ img + small, img + br + small {
 }
 .header-page h1 {
   font-weight: var(--font2-regular);
-  font-size: 3rem;
+  font-size: 4.25rem;
   text-align: left;
   margin: 0 0 10px;
   color: var(--text)
