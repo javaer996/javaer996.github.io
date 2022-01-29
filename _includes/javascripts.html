@@ -124,7 +124,7 @@
       navigator.clipboard.writeText('{{ site.url }}{{ page.url }}').then(function() {
       alerts = document.getElementsByClassName('alert')
       for (i=0; i < alerts.length; i++){
-        alerts[i].innerHTML='\u00ABlink copied\u00BB';
+        alerts[i].innerHTML='\u00AB复制链接\u00BB';
         setTimeout((function(i){ return function(){alerts[i].innerHTML='';}})(i), 1600 );
       };
       }, function() {

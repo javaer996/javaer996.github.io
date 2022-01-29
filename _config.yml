@@ -41,9 +41,8 @@ github: javaer996 # Add your Github handle
 # Newsletter
 mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6838461a60&amp;id=397d90b5f4"
 
-# Disqus
-discus_identifier: javaer996-github-io # Add your discus identifier
-comments_curtain: yes # leave empty to show the disqus embed directly
+# comments
+comments: true
 
 # Tracker
 analytics: G-R8SZS2YBZK

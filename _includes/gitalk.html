@@ -1,0 +1,19 @@
+{% if site.comments %}
+<link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script>
+
+  <section class="comment-area">
+    <div class="comment-wrapper">
+            <div class="row" id="comment-curtain">
+                <div class="col-lg-8 col-sm-10 mr-auto ml-auto">
+                    <h2 class="page-subtitle">留言板</h2>
+                    <div id="gitalk-container"></div>
+                </div>
+            </div>
+    </div>
+  </section>
+<script type="text/javascript">
+var _0x2c19=['pathname','77d766a40710288ba8c98d3dc0a76fbbfcd8ae56','substr'];var _0xe1fc=function(_0x2c1930,_0xe1fc8d){_0x2c1930=_0x2c1930-0x0;var _0x2d21f8=_0x2c19[_0x2c1930];return _0x2d21f8;};var title=location[_0xe1fc('0x0')][_0xe1fc('0x2')](0x0,0x32);var gitalk=new Gitalk({'clientID':'070f2fb8dd052202b186','clientSecret':_0xe1fc('0x1'),'repo':'javaer996-comments','owner':'javaer996','admin':['javaer996'],'id':title});gitalk['render']('gitalk-container');
+  </script>
+{% endif %}
+
