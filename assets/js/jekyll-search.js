@@ -241,7 +241,7 @@ var relativebase = "./";
         json: [],
         searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
         templateMiddleware: function () {},
-        noResultsText: 'No results found',
+        noResultsText: '呜呜~~没有找到内容呢',
         limit: 10,
         fuzzy: false,
         exclude: []

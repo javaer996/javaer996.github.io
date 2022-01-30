@@ -6,7 +6,7 @@ title:  SpringBoot集成Swagger2?
 date:   2022-01-29 17:35:20 +0800
 description: SpringBoot集成Swagger2步骤.
 img: posts/20220129/Swagger.png
-tags: [SpringBoot, Swagger2]
+tags: [springboot,swagger2]
 author: tengjiang
 toc: yes
 ---
@@ -33,9 +33,7 @@ toc: yes
 </dependency>
 <!-- swagger2 end-->
 ```
-
-
-
+<!-- more -->
 ## 二、添加Swagger2Config配置文件
 
 ```java
@@ -74,8 +72,6 @@ public class Swagger2Config {
     }
 }
 ```
-
-
 
 ## 三、添加ServerConfig配置类 (如果有，在之前的配置文件中新增即可)
 

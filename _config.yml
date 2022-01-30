@@ -44,6 +44,8 @@ mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6
 # comments
 comments: true
 
+excerpt_separator:  '<!-- more -->'
+
 # Tracker
 analytics: G-R8SZS2YBZK
 fbadmin: ar.maybach

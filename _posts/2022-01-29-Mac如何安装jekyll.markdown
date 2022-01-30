@@ -6,7 +6,7 @@ title:  Mac如何安装jekyll?
 date:   2022-01-29 10:19:20 +0800
 description: 记录Mac安装jekyll遇到的问题以及解决方式.
 img: posts/20220129/jekyll.png
-tags: [mac, jekyll, ruby, gem, rvm, brew]
+tags: [mac,jekyll,springboot]
 author: tengjiang
 # github: amaynez/TicTacToe/blob/7bf83b3d5c10adccbeb11bf244fe0af8d9d7b036/entities/Neural_Network.py#L199
 # mathjax: yes # leave empty or erase to prevent the mathjax javascript from loading
@@ -19,6 +19,7 @@ toc: yes # leave empty or erase for no TOC
 >
 > 所以我们需要自己安装一个ruby软件。
 
+<!-- more -->
 #####  使用rvm安装ruby
 
 > RVM 是一个命令行工具，可以提供一个便捷的多版本 Ruby 环境的管理和切换。

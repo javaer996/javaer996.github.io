@@ -1888,7 +1888,9 @@ a.post-list-title {
 }
 a.read-more {
     color: var(--accent);
-    text-decoration:none
+    text-decoration:none;
+    display: block;
+    text-align: center;
 }
 a.read-more:hover {
     text-decoration:underline;
