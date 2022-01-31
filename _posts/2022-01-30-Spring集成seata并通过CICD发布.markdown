@@ -11,6 +11,8 @@ author: tengjiang
 toc: yes
 ---
 
+|| 该文章主要介绍SpringBoot怎么集成分布式事务Seata，以及通过Gitlab的CICD发布。 ||
+
 ## seata-server安装启动
 
 ### 下载seata-server安装包

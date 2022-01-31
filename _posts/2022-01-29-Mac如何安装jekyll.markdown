@@ -13,7 +13,7 @@ author: tengjiang
 toc: yes # leave empty or erase for no TOC
 ---
 
-<kbd>该文章主要介绍Mac如何安装jekyll，以及在安装过程中遇到了哪些问题。</kbd>
+|| 该文章主要介绍Mac如何安装jekyll，以及在安装过程中遇到了哪些问题。||
 
 <!-- more -->
 

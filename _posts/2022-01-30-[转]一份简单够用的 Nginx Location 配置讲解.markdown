@@ -11,10 +11,14 @@ author: tengjiang
 toc: yes
 ---
 
+|| 该文章主要介绍Nginx的一些简单配置说明。||
+
+<!-- more -->
+
 ## 前言
 
 Location 是 Nginx 中一个非常核心的配置，这篇重点讲解一下 Location 的配置问题以及一些注意事项。
-<!-- more -->
+
 ## 语法
 
 关于 Location，举个简单的配置例子：

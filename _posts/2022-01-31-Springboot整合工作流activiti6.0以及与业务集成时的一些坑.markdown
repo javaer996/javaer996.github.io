@@ -11,9 +11,10 @@ author: tengjiang
 toc: yes
 ---
 
-<kbd>该文章主要介绍Springboot怎么集成工作流，在集成过程中遇到了哪些问题以及怎么解决的。</kbd>
+|| 该文章主要介绍Springboot怎么集成工作流，在集成过程中遇到了哪些问题以及怎么解决的。||
 
 <!-- more -->
+
 ### 1、首先，要在springboot工程的pom文件中引入相关jar包
 
 ```html
