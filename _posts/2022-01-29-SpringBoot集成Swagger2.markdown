@@ -17,7 +17,26 @@ toc: yes
 
 ## 一、添加MAVEN依赖
 
+```xml
+<!-- 版本号 -->
+<swagger2.version>3.0.0</swagger2.version>
+<knife4j-spring-boot-starter.version>3.0</knife4j-spring-boot-starter.version>
 
+
+<!-- swagger2 begin-->
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-boot-starter</artifactId>
+    <version>${swagger2.version}</version>
+</dependency>
+<!-- 使用了bootstrap版本的swagger ui -->
+<dependency>
+    <groupId>com.github.xiaoymin</groupId>
+    <artifactId>knife4j-spring-boot-starter</artifactId>
+    <version>${knife4j-spring-boot-starter.version}</version>
+</dependency>
+<!-- swagger2 end-->
+```
 
 ## 二、添加Swagger2Config配置文件
 
