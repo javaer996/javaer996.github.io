@@ -13,13 +13,16 @@ author: tengjiang
 toc: yes # leave empty or erase for no TOC
 ---
 
+<kbd>该文章主要介绍Mac如何安装jekyll，以及在安装过程中遇到了哪些问题。</kbd>
+
+<!-- more -->
+
 #### 一、安装Ruby
 
 > 其实mac自带ruby，但是安装的时候不能使用自带的ruby软件，因为自带的权限为system，导致安装的时候权限不够安装失败，
 >
 > 所以我们需要自己安装一个ruby软件。
 
-<!-- more -->
 #####  使用rvm安装ruby
 
 > RVM 是一个命令行工具，可以提供一个便捷的多版本 Ruby 环境的管理和切换。
