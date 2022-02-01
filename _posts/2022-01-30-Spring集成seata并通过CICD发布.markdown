@@ -19,7 +19,7 @@ toc: yes
 
 ### 下载seata-server安装包
 
-- https://github.com/seata/seata/releases
+- [https://github.com/seata/seata/releases](https://github.com/seata/seata/releases)
 
 ### 配置file.conf和registry.conf等配置文件
 
