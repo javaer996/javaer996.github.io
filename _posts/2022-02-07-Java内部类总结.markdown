@@ -97,13 +97,13 @@ public interface Iinner{
 }
 
 public class OutClass{
-       public void sayMethod(){
-            new Iinner() {
-              @Override
-              public void say() {
-                System.out.println("hello");
-              }
-	    			}.say();
+	public void sayMethod(){
+		new Iinner() {
+			@Override
+			public void say() {
+			System.out.println("hello");
+			}
+		}.say();
     }
 }
 ```
