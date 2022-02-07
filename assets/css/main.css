@@ -1590,7 +1590,6 @@ img + small, img + br + small {
   font-family: var(--font2), sans-serif;
   font-weight: var(--font2-bold);
   text-decoration: none;
-  text-transform: uppercase;
   color: white;
   background-color: #00000099;
   padding-left: 5px;

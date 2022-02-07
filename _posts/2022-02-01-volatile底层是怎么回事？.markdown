@@ -11,7 +11,7 @@ author: tengjiang
 toc: yes
 ---
 
-|| 该文章主要介绍valatile底层依靠什么实现的。||
+|| 该文章主要介绍volatile底层依靠什么实现的。||
 
 <!-- more -->
 
