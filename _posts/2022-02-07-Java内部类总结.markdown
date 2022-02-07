@@ -37,9 +37,7 @@ public class OutClass{
 
 **特点：**
 
-1. 直接在外部类中编写内部类，该内部类看起来好像是和外部类的字段方法平级的，其实并不然，因为在编译代码的时候，
-
-会将内部类单独编译成一个文件，其中文件名以$标识；
+1. 直接在外部类中编写内部类，该内部类看起来好像是和外部类的字段方法平级的，其实并不然，因为在编译代码的时候，会将内部类单独编译成一个文件，其中文件名以$标识；
 
 2. 成员内部类允许使用private，protected,默认，public所有的权限修饰符修饰；      
 
@@ -93,18 +91,18 @@ public class OutClass{
 
 ```java
 public interface Iinner{
-       void say();
+    void say();
 }
 
 public class OutClass{
-	public void sayMethod(){
-		new Iinner() {
-			@Override
-			public void say() {
-			System.out.println("hello");
-			}
-		}.say();
-    }
+  public void sayMethod(){
+    new Iinner() {
+      @Override
+      public void say() {
+        System.out.println("hello");
+      }
+    }.say();
+  }
 }
 ```
 
