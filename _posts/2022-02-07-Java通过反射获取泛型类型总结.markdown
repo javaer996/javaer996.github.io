@@ -1,0 +1,121 @@
+---
+layout: post
+read_time: true
+show_date: true
+title:  Java通过反射获取泛型类型总结
+date:   2022-02-07 10:35:20 +0800
+description: java 反射 泛型
+img: posts/common/java.png
+tags: [java,反射,泛型]
+author: tengjiang
+toc: yes
+---
+
+|| 该文章主要介绍Java中如何获取泛型类型，以及什么情况的可获取什么情况下不可获取。||
+
+<!-- more -->
+
+## Type接口说明
+
+Type接口只有一个实现类Class，但是有四个子接口，这四个Type子接口描述了Java泛型的四种形式，分别是：
+
+- GenericArrayType 该接口表示一种数组类型，其组件类型为参数化类型或类型变量，如参数化类型数组Map<String, String>[] map，还有类型变量数组T[] t
+
+- ParameterizedType 该接口表示参数化类型，如 Collection<String>。
+
+- TypeVariable<T> 该接口是各种类型变量的公共高级接口，可以表示泛型声明的参数类型（不存在的类型），如 class ClassName<T>和Collection<T>，这里的T就是一个类型变量。
+
+- WildcardType 表示一个通配符类型表达式，如 ?、? extends Number 或 ? super Integer。
+
+## 泛型类型都可被获取吗？
+
+> 当然不是的。
+
+1. 类型变量和类型变量数组还有通配符类型表达式都是取不到泛型参数的实际类型的(下面说的继承方法除外)；
+
+2. 泛型的参数化类型和参数化类型数组中的实际类型可以得到实际类型，并可用于实例化。
+
+## 什么情况下可以获取到泛型？
+
+### 1.类成员变量类型的泛型参数
+
+```java
+public class Test{
+
+  private Map<String, Integer> map = new HashMap<String,Integer>();
+
+  public static void main(String[] args) throws Exception {
+    Field field = SapTest.class.getDeclaredField("map");
+    field.setAccessible(true);
+    Type genericType = field.getGenericType();
+    if(genericType instanceof ParameterizedType){
+      ParameterizedType parameterizedType = (ParameterizedType)genericType;
+      System.out.println(parameterizedType.getActualTypeArguments());
+    }
+  }
+}  
+```
+### 2.类成员方法返回值的泛型参数
+
+```java
+public class Test{
+  public static void main(String[] args) throws Exception {
+    Method method = SapTest.class.getDeclaredMethod("test", List.class);		
+      Type genericReturnType = method.getGenericReturnType();
+      System.out.println("genericReturnType="+genericReturnType);
+      if(genericReturnType instanceof ParameterizedType){
+        System.out.println(((ParameterizedType)(genericReturnType)).getActualTypeArguments()[0]);
+      }
+  }
+
+  public List<Integer> test(List<String> t){
+    return new ArrayList<Integer>();
+  }
+}
+```
+
+
+### 3.类成员方法参数类型的泛型参数
+
+```java
+public class Test{
+  public static void main(String[] args) throws Exception {
+    Method method = SapTest.class.getDeclaredMethod("test", List.class);		
+    Type[] genericParameterTypes = method.getGenericParameterTypes();
+    if(genericParameterTypes[0] instanceof ParameterizedType){
+      System.out.println(((ParameterizedType)(genericParameterTypes[0])).getActualTypeArguments()[0]);
+    }
+  }
+
+  public List<Integer> test(List<String> t){
+    return new ArrayList<Integer>();
+  }
+}
+```
+
+### 4.类构造函数的参数类型的泛型参数。
+
+```java
+public class Test{
+  public Test(List<String> list){}
+
+  public static void main(String[] args) {
+    Constructor<SapTest> constructor = SapTest.class.getConstructor(List.class);
+    Type[] genericParameterTypes = constructor.getGenericParameterTypes();
+    Type type = ((ParameterizedType)(genericParameterTypes[0])).getActualTypeArguments()[0];
+    System.out.println(type);
+  }
+}
+```
+### 5.通过extends在子类指定父类中泛型变量具体类型的，可获取父类泛型的具体类型  
+
+```java
+class Father<T>{
+     public Father(){
+         Type genType = getClass().getGenericSuperclass();  
+     Type params = ((ParameterizedType)genType).getActualTypeArguments()[0]; 
+     }
+}
+class Children extends Father<Children>{}
+```
+

@@ -107,7 +107,7 @@ response.setCharacterEncoding(charset);
 
 ### Header
 
-这里我们先说下header，有时我们HTTP请求中，我们也会在header中携带一些信息，这里面的信息如果存在非ASCII字符，那么在接收端也需要进行解码，就像tomcat，在首次调用request.getHeader默认就是使用ISO-8859-1进行解码。
+有时我们HTTP请求中，我们也会在header中携带一些信息，这里面的信息如果存在非ASCII字符，那么在接收端也需要进行解码，就像tomcat，在首次调用request.getHeader默认就是使用ISO-8859-1进行解码。
 
 **而且我们不能通过其他方式修改解码格式**，所以，如果header中存在非ASCII字符的话，首先通过URIEncoder进行编码，在添加到header中，不然很可能出现乱码。
 
