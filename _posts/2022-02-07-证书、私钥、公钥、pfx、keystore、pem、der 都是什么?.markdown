@@ -6,7 +6,7 @@ title:  证书、私钥、公钥、pfx、keystore、pem、der 都是什么?
 date:   2022-02-07 09:06:20 +0800
 description: 证书、私钥、公钥、pfx、keystore、pem、der
 img: posts/common/common.jpg
-tags: [证书,公钥,私钥]
+tags: [数字证书]
 author: tengjiang
 toc: yes
 ---

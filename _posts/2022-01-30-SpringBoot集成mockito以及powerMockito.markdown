@@ -6,7 +6,7 @@ title:  SpringBoot集成mockito以及powerMockito
 date:   2022-01-30 14:22:20 +0800
 description: SpringBoot集成mockito以及powerMockito.
 img: posts/20220130/mockito.png
-tags: [springboot,mockito,powerMockito]
+tags: [springboot,mockito]
 author: tengjiang
 toc: yes
 ---

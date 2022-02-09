@@ -6,7 +6,7 @@ title:  volatile底层是怎么回事？
 date:   2022-02-01 10:23:20 +0800
 description: volatile底层, JMM, MESI
 img: posts/common/java.png
-tags: [java,volatile,jmm, mesi]
+tags: [java,volatile]
 author: tengjiang
 toc: yes
 ---
