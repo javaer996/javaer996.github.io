@@ -132,7 +132,7 @@
           ele.setAttribute("style", "background: url('"+ img +"') center no-repeat; background-size: cover;");
         });
       {% else %}
-        ele.setAttribute("style", "background: url('"+ ele.getAttribute("imgtag") +"') center no-repeat; background-size: cover;");
+        ele.setAttribute("style", "background: url('{{ relativebase }}assets/img/"+ ele.getAttribute("imgtag") +"') center no-repeat; background-size: cover;");
       {% endif %}
     });
   </script>
@@ -209,7 +209,7 @@
           ele.setAttribute("style", "background: url('"+ img +"') center no-repeat; background-size: cover;");
         });
       {% else %}
-        ele.setAttribute("style", "background: url('"+ ele.getAttribute("imgtag") +"') center no-repeat; background-size: cover;");
+        ele.setAttribute("style", "background: url('{{ relativebase }}assets/img/"+ ele.getAttribute("imgtag") +"') center no-repeat; background-size: cover;");
       {% endif %}
     });
     
