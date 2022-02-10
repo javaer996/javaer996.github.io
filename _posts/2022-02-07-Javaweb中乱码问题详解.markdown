@@ -5,7 +5,7 @@ show_date: true
 title:  Javaweb中乱码问题详解
 date:   2022-02-07 09:40:20 +0800
 description: javaweb 乱码 编码
-img: posts/20220207/javaweb.png
+img: posts/common/javaweb.png
 tags: [javaweb,编码]
 author: tengjiang
 toc: yes

@@ -5,7 +5,7 @@ show_date: true
 title: 【转】一份简单够用的 Nginx Location 配置讲解
 date: 2022-01-30 15:22:20 +0800
 description: 一份简单够用的 Nginx Location 配置讲解.
-img: posts/20220130/nginx.png
+img: posts/common/nginx.png
 tags: [nginx]
 author: tengjiang
 toc: yes

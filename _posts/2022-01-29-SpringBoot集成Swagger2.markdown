@@ -5,7 +5,7 @@ show_date: true
 title:  SpringBoot集成Swagger2?
 date:   2022-01-29 17:35:20 +0800
 description: SpringBoot集成Swagger2步骤.
-img: posts/20220129/Swagger.png
+img: posts/common/Swagger.png
 tags: [springboot,swagger2]
 author: tengjiang
 toc: yes

@@ -5,7 +5,7 @@ show_date: true
 title:  Springboot整合工作流activiti6.0以及与业务集成时的一些坑
 date:   2022-01-31 12:33:20 +0800
 description: Springboot整合工作流activiti6.0以及与业务集成时的一些坑.
-img: posts/20220131/activiti.png
+img: posts/common/activiti.png
 tags: [springboot,activiti]
 author: tengjiang
 toc: yes

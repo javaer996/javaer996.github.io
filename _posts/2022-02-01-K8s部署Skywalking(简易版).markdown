@@ -5,7 +5,7 @@ show_date: true
 title:  k8s部署Skywalking(简易版)
 date:   2022-02-01 08:58:20 +0800
 description: k8s(kubernetes)部署Skywalking(简易版)
-img: posts/20220131/skywalking.png
+img: posts/common/skywalking.png
 tags: [k8s,Skywalking]
 author: tengjiang
 toc: yes

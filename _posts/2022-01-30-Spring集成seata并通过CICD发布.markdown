@@ -5,7 +5,7 @@ show_date: true
 title:  Spring集成seata并通过CICD发布
 date:   2022-01-30 17:40:20 +0800
 description: Spring集成seata并通过CICD发布.
-img: posts/20220130/seata.png
+img: posts/common/seata.png
 tags: [spring,seata]
 author: tengjiang
 toc: yes

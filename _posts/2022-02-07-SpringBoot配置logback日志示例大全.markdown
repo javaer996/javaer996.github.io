@@ -5,7 +5,7 @@ show_date: true
 title:  SpringBoot配置logback日志示例大全
 date:   2022-02-07 15:35:20 +0800
 description: springboot logback
-img: posts/20220207/logback.png
+img: posts/common/logback.png
 tags: [springboot,logback]
 author: tengjiang
 toc: yes

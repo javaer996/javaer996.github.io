@@ -46,6 +46,8 @@ comments: true
 
 excerpt_separator:  '<!-- more -->'
 
+fastimg: true
+
 # Tracker
 analytics: G-R8SZS2YBZK
 fbadmin: ar.maybach

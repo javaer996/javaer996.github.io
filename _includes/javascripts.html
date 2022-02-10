@@ -113,8 +113,34 @@
 <script src="{{ relativebase }}assets/js/jekyll-search.js"></script>
 <script src="{{ relativebase }}assets/js/jquery-3.6.0.min.js"></script>
 
+<script>
+    // 用于国内获取速度较快的图片资源
+    function getfastimg(pageimg, action) {
+      $.getJSON("{{ relativebase }}fastimg.json", function(json) {
+        action(json[pageimg]);
+      })
+    }
+</script>
+
+{% if page.layout == "home-page" %}
+  <script>
+    // 首页图片地址处理
+    var els = document.getElementsByClassName("post-card-image");
+    [].forEach.call(els, function(ele){
+      {% if site.fastimg %}
+        getfastimg(ele.getAttribute("imgtag"), function(img){
+          ele.setAttribute("style", "background: url('"+ img +"') center no-repeat; background-size: cover;");
+        });
+      {% else %}
+        ele.setAttribute("style", "background: url('"+ ele.getAttribute("imgtag") +"') center no-repeat; background-size: cover;");
+      {% endif %}
+    });
+  </script>
+{% endif %}
+
 {% if page.layout == "post" %}
   <script>
+
     function toggle_comments(){
         document.getElementById('comment-curtain').classList.toggle('hide')
         document.getElementById('disqus_thread').classList.toggle('show')
@@ -166,6 +192,27 @@
 
     });
 
+    // 内容页图片地址处理
+    {% if site.fastimg %}
+      getfastimg("{{ page.img }}", function(img) {
+        document.getElementsByClassName("cover-image")[0].setAttribute("style", "background: url('"+ img +"') center no-repeat; background-size: cover;");
+      })
+    {% else %}
+      document.getElementsByClassName("cover-image")[0].setAttribute("style","background: url('{{ relativebase }}assets/img/{{ page.img }}') center no-repeat; background-size: cover;");
+    {% endif %}
+
+    // 最新文章图片地址处理
+    var els = document.getElementsByClassName("recent-item-img");
+    [].forEach.call(els, function(ele){
+      {% if site.fastimg %}
+        getfastimg(ele.getAttribute("imgtag"), function(img){
+          ele.setAttribute("style", "background: url('"+ img +"') center no-repeat; background-size: cover;");
+        });
+      {% else %}
+        ele.setAttribute("style", "background: url('"+ ele.getAttribute("imgtag") +"') center no-repeat; background-size: cover;");
+      {% endif %}
+    });
+    
   </script>
   <!-- Mailchimp linking -->
   <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/8ece198b3eb260e6838461a60/d20d9fb9aad962399025da52e.js");</script>

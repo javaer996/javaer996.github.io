@@ -5,7 +5,7 @@ show_date: true
 title:  Skywalking使用方式介绍
 date:   2022-01-31 16:16:20 +0800
 description: Skywalking使用方式介绍
-img: posts/20220131/skywalking.png
+img: posts/common/skywalking.png
 tags: [Skywalking]
 author: tengjiang
 toc: yes

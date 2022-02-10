@@ -5,7 +5,7 @@ show_date: true
 title:  SpringBoot集成ldap分页查询AD域用户信息
 date:   2022-02-09 10:11:20 +0800
 description: SpringBoot集成ldap分页查询AD域用户信息
-img: posts/20220209/ldap.png
+img: posts/common/ldap.png
 tags: [springboot,ldap]
 author: tengjiang
 toc: yes
