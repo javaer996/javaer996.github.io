@@ -99,8 +99,6 @@ fi
 
 **iterm2-recv-zmodem.sh**
 
-### 第四步：使用rz/sz命令进行上传下载
-
 ```shell
 #!/bin/bash
 osascript -e 'tell application "iTerm2" to version' > /dev/null 2>&1 && NAME=iTerm2 || NAME=iTerm
