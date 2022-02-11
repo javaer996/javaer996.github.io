@@ -31,7 +31,7 @@ about-author: 码农是怎样炼成的.
 # Contact links
 email: tengjiang1209@gmail.com # Add your Email address
 phone: # Add your Phone number
-website: https://javaer996.github.io # Add your website
+website: https://www.tengjiang.site # Add your website
 # linkedin: amaynez # Add your Linkedin handle
 github: javaer996 # Add your Github handle
 # twitter: '@MvmThe' # Add your Twitter handle
@@ -39,13 +39,14 @@ github: javaer996 # Add your Github handle
 # stackoverflow: stackoverflow # Add your stackoverflow account
 
 # Newsletter
-mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6838461a60&amp;id=397d90b5f4"
+# mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6838461a60&amp;id=397d90b5f4"
 
 # comments
 comments: true
 
 excerpt_separator:  '<!-- more -->'
 
+# 起初是为了在加快在github上的图片访问速度，现在暂时关闭了
 fastimg: false
 
 # Tracker
