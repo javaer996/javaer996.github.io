@@ -1,1 +1,1 @@
-[点击访问网站](https://javaer996.github.io/)
+[点击访问网站](https://www.tengjiang.site/)
