@@ -461,7 +461,7 @@ pre {
   padding: 14px 20px;
   overflow-x: auto;
   font-family: monospace;
-  font-size: 0.75rem;
+  font-size: 1rem;
 }
 pre code {
   border: 0;
@@ -470,7 +470,7 @@ pre code {
 }
 code {
   font-family: monospace;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
 }
 svg {
     vertical-align: middle;

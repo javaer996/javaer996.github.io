@@ -35,7 +35,7 @@ Spring包含很多模块，如下图所示：
 
 - spring-beans
 
-  > 主要是与bean有关：BeanFacotory，BeanDefinition，BeanFactoryPostProcessor，BeanPostProcessor等。
+  > 主要是与bean有关：BeanFactory，BeanDefinition，BeanFactoryPostProcessor，BeanPostProcessor等。
 
   ![spring beans](https://s2.loli.net/2022/02/14/AoaC8Rv4YfzXKyk.png)
 
@@ -73,14 +73,14 @@ Spring AOP中的动态代理主要有两种实现方式：JDK动态代理和CGLI
 
 ## Spring容器
 
-### BeanFacotory
+### BeanFactory
 
-BeanFacotory是Spring容器最顶层父类接口，它定义了容器最基本的功能。如下：
+BeanFactory是Spring容器最顶层父类接口，它定义了容器最基本的功能。如下：
 
 ```java
 public interface BeanFactory {
 
-  // 如果bean的名字是&符号开始，spring就会认为这是要获取FacotoryBean而不是bean
+  // 如果bean的名字是&符号开始，spring就会认为这是要获取FactoryBean而不是bean
   String FACTORY_BEAN_PREFIX = "&";
 
   Object getBean(String name) throws BeansException;
@@ -148,7 +148,7 @@ public interface ListableBeanFactory extends BeanFactory {
 
 - HierarchicalBeanFactory
 
-  > 使BeanFactory可以拥有父BeanFacotory，使得BeanFacotory有了层级关系
+  > 使BeanFactory可以拥有父BeanFactory，使得BeanFactory有了层级关系
 
 ```java
 public interface HierarchicalBeanFactory extends BeanFactory {
@@ -220,7 +220,7 @@ public interface AutowireCapableBeanFactory extends BeanFactory {
 
 ### ApplicationContext
 
-> ApplicationContext可以看做是升级版的BeanFacotory，可以看到它不仅继承了ListableBeanFactory，HierarchicalBeanFactory基本BeanFacotory接口，还继承了环境变量，国际化，事件通知，资源解析等接口，进一步扩展了基本容器的功能。
+> ApplicationContext可以看做是升级版的BeanFactory，可以看到它不仅继承了ListableBeanFactory，HierarchicalBeanFactory基本BeanFactory接口，还继承了环境变量，国际化，事件通知，资源解析等接口，进一步扩展了基本容器的功能。
 
 ```java
 public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory, MessageSource, ApplicationEventPublisher, ResourcePatternResolver {
@@ -492,13 +492,13 @@ public interface BeanDefinitionRegistry extends AliasRegistry {
 }
 ```
 
-由于该接口是一个特别基础的接口，所以BeanFacotory以及ApplicationContext的实现类都会实现该接口，例如：
+由于该接口是一个特别基础的接口，所以BeanFactory以及ApplicationContext的实现类都会实现该接口，例如：
 
-- DefaultListableBeanFacotory
+- DefaultListableBeanFactory
 - AnnotationConfigApplicationContext
 - SimpleBeanDefinitionRegistry
 
-### BeanFacotory/ApplicationContext
+### BeanFactory/ApplicationContext
 
 上面已介绍。
 
@@ -520,7 +520,7 @@ public interface ApplicationEventPublisher {
 
 该接口数据ApplicationContext中扩展的时间通知机制，所以所有的ApplicationContext实现类都可以使用。
 
-### BeanFacotoryPostProcessor
+### BeanFactoryPostProcessor
 
 BeanFactoryPostProcessor可以对bean的定义（配置元数据）进行处理。也就是说，Spring IoC容器允许BeanFactoryPostProcessor在容器实际实例化任何其它的bean之前读取配置元数据，并有可能修改它。如果你愿意，你可以配置多个BeanFactoryPostProcessor。你还能通过设置'order'属性来控制BeanFactoryPostProcessor的执行次序。
 
@@ -641,7 +641,7 @@ public interface Aware {
 
 常见的Aware扩展接口如下（接口都要实现一个setXXX的方法）：
 - BeanNameAware：可以感知beanName
-- BeanFactoryAware：可以感知beanFacotory
+- BeanFactoryAware：可以感知beanFactory
 - BeanClassLoaderAware：可以感知beanClassLoader
 - EnvironmentAware：可以感知Environment
 - ServletContextAware：可以感知servletContext
