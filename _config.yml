@@ -83,4 +83,4 @@ plugins:
   - jekyll-sitemap
 
 include: [_pages]
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "assets/css/sass/", ossutilmac64, push-oss.sh, start.sh]
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "assets/css/sass/", "ossutilmac64", "push-oss.sh", "start.sh", "ossutil_output/"]
