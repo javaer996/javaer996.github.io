@@ -2,7 +2,7 @@
 layout: post
 read_time: true
 show_date: true
-title:  Spring系列-Spring的BeanDefinition解析流程-XML配置
+title:  Spring系列-BeanDefinition解析流程-XML配置
 date:   2022-03-01 16:13:20 +0800
 description: Spring系列-Spring的BeanDefinition解析流程-XML配置
 img: posts/common/spring.png
