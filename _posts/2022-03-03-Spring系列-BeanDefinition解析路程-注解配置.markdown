@@ -220,7 +220,12 @@ public void processConfigBeanDefinitions(BeanDefinitionRegistry registry) {
   // 直到candidates为空才停止处理，如果不为空，说明经过处理后一直有新的BeanDefinition加入进来
   while (!candidates.isEmpty());
 
-  // 将ImportRegistry注册为单例bean，以支持ImportAware @Configuration类
+  // 将ImportRegistry注册为单例bean，以支持实现ImportAware @Configuration类
+  // 为什么注册这个单例Bean？
+  // 下一篇文章我们会讲到@Import原理，其中导入类实现ImportSelector接口的方式都可以在导入类方法中获取到importMetadata，
+  // 但是没有实现该接口的导入类怎么获取到importMetadata呢？这就需要ImportAware接口了，如果导入类实现了ImportAware接口，
+  // 在后续实例化Bean的时候，在ImportAwareBeanPostProcessor后置处理器中就会从该单例Bean中取对应的importMetadata设置
+  // 到实例中，这样导入类就获取到了importMetadata信息。
   if (sbr != null && !sbr.containsSingleton(IMPORT_REGISTRY_BEAN_NAME)) {
     sbr.registerSingleton(IMPORT_REGISTRY_BEAN_NAME, parser.getImportRegistry());
   }
