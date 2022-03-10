@@ -1271,8 +1271,8 @@ path.fa-secondary {
     position: -webkit-sticky;  
     position: sticky;
     top: 32px;
-    width: 180px;
-    margin-right: -210px;
+    width: 250px;
+    margin-right: -280px;
     float: right;
   }
   .toc-content{
