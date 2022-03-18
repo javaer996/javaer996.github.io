@@ -117,14 +117,14 @@ protected List<Advisor> findEligibleAdvisors(Class<?> beanClass, String beanName
 
 ### findCandidateAdvisors()
 
-该方法在AnnotationAwareAspectJAutoProxyCreator类中进行了重写，增加了@AspectJ注解解析逻辑。
+该方法在AnnotationAwareAspectJAutoProxyCreator类中进行了重写，增加了@AspectJ注解解析逻辑。该方法只会处理Advisor类型的Bean以及被@AspectJ注解标记的Bean，并不会处理实现了Advice接口或MethodInterceptor接口的Bean。如果想要实现了Advice接口的Bean生效，可以将其包装为Advisor，如果想要实现了MethodInterceptor接口的Bean生效，可以依据我们上一篇文章[Spring系列-Spring Aop使用的几种方式](https://www.tengjiang.site/Spring%E7%B3%BB%E5%88%97-Spring-Aop%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html)介绍的前几种方式，手动设置该拦截器。
 
 ```java
 protected List<Advisor> findCandidateAdvisors() {
   // 调用父类中的findCandidateAdvisors()方法，也就是下面的实现
   List<Advisor> advisors = super.findCandidateAdvisors();
   if (this.aspectJAdvisorsBuilder != null) {
-    // 解析AspectJ相关注解，将注解方式标注的Advisor添加到集合中
+    // 解析@AspectJ相关注解，将注解方式标注的Advisor添加到集合中
     advisors.addAll(this.aspectJAdvisorsBuilder.buildAspectJAdvisors());
   }
   return advisors;
