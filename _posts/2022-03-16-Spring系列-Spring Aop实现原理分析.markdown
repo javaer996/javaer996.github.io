@@ -311,6 +311,9 @@ protected void extendAdvisors(List<Advisor> candidateAdvisors) {
 
 ### makeAdvisorChainAspectJCapableIfNecessary()
 
+ExposeInvocationInterceptor的作用是将MethodInvocation放到ThreadLocal中去，为什么需要这么做呢？
+因为虽然在每个MethodInterceptor中都可以直接获取到MethodInvocation，但是通过适配的advise却没有方法入参可以传入MethodInvocation，所以如果想在advise的通知逻辑中获取MethodInvocation，就需要ExposeInvocationInterceptor提前设置。
+
 ```java
 // AspectJProxyUtils.java
 public static boolean makeAdvisorChainAspectJCapableIfNecessary(List<Advisor> advisors) {
@@ -1114,3 +1117,6 @@ public int accept(Method method) {
 ```
 
 到这里，Spring Aop实现源码的重点逻辑我们就讲完了。
+
+不知道大家有没有一个疑问？Spring aop在处理的过程中为什么要先将interceptor/advise都适配成advisor(通知者)，然后在最后再通过advisor适配成interceptor去使用，来回转换的意义在哪?
+先适配成advisor是因为advisor即可以持有interceptor/advise又可以持有pointcut信息，而interceptor没有pointcut进行判断的相关信息，通过pointcut可以进行判断该拦截器是否需要应用到该方法上，如果判断通过了，就通过该advisor拿到interceptor去使用，因为拦截器的逻辑都是通过methodInterceptor的invoke方法去执行的。
