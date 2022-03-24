@@ -101,6 +101,8 @@ public interface InstantiationAwareBeanPostProcessor extends BeanPostProcessor {
 
 ## SmartInstantiationAwareBeanPostProcessor
 
+该接口主要定义提供推断Bean类型和构造方法的能力，最重要的是可以解决单例Bean在非构造方法注入时的循环依赖的问题。
+
 ```java
 public interface SmartInstantiationAwareBeanPostProcessor extends InstantiationAwareBeanPostProcessor {
 
@@ -125,6 +127,8 @@ public interface SmartInstantiationAwareBeanPostProcessor extends InstantiationA
 ```
 
 ## DestructionAwareBeanPostProcessor
+
+该接口定义可以感知Bean的销毁，在Bean销毁之前做一些处理。
 
 ```java
 public interface DestructionAwareBeanPostProcessor extends BeanPostProcessor {
