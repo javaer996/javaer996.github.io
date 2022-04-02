@@ -132,8 +132,8 @@ header_pages:
 #   heading_style: null     # Custom heading style (e.g. "font-weight: bold; text-decoration: underline")
 #   subheading_style: null  # Custom subheading style (e.g. color: gold)
 banner:
- # image: https://s2.loli.net/2022/04/02/Hx1ABnaroKMg46W.jpg
   image: https://p.qlogo.cn/hy_personal/3e28f14aa05168428df163d6f90c3cd0076a1ab131199f98cb8331da68d2ac35/0.jpg
+ # image: https://s2.loli.net/2022/04/02/Hx1ABnaroKMg46W.jpg
   opacity: 0.618
   background: "#000"
   height: "100vh"
@@ -152,12 +152,12 @@ paginate: 15
 #   shortname: "Your Disqus username"
 
 # Gitment comments
-gitment:
-  username: "javaer996"
-  repo: "javaer996-comments"
-  client_id: "37b355098f8ef19b5b0f"
-  client_secret: "549e7b7196b43098282737a054a7b9112964f53b"
-  redirect_uri: "https://www.tengjiang.site"   # If you use a custom domain name
+# gitment:
+#   username: "javaer996"
+#   repo: "javaer996-comments"
+#   client_id: "37b355098f8ef19b5b0f"
+#   client_secret: "549e7b7196b43098282737a054a7b9112964f53b"
+#   redirect_uri: "https://www.tengjiang.site"   # If you use a custom domain name
 
 # Build settings
 # highlighter: A 11 Y Dark
@@ -171,3 +171,5 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-spaceship
+
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "assets/css/sass/", "ossutilmac64", "push-oss.sh", "start.sh", "ossutil_output/"]

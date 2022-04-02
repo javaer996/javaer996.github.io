@@ -2,7 +2,7 @@
 layout: post
 read_time: true
 show_date: true
-title: 【转】一份简单够用的 Nginx Location 配置讲解
+title: 一份简单够用的 Nginx Location 配置讲解
 subtitle: 命运不是放弃，而是努力。命运不是运气，而是选择。
 date: 2022-01-30 15:22:20 +0800
 description: 一份简单够用的 Nginx Location 配置讲解.
