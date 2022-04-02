@@ -1,0 +1,80 @@
+---
+layout: post
+read_time: true
+show_date: true
+title:  Java线程该如何捕获异常
+subtitle: 不要让太多昨天占据你的今天。
+date:   2022-02-07 10:58:20 +0800
+description: java 线程 异常
+categories: [教程]
+tags: [java,线程]
+author: tengjiang
+toc: yes
+---
+
+首先，我们要知道，在Java中，线程中的异常是不能抛出到调用该线程的外部方法中捕获的。
+
+## 为什么不能抛出到外部线程捕获？
+
+因为线程是独立执行的代码片断，线程的问题应该由线程自己来解决，而不要委托到外部。”基于这样的设计理念，在Java中，线程方法的异常都应该在线程代码边界之内（run方法内）进行try catch并处理掉.换句话说，我们不能捕获从线程中逃逸的异常。
+
+## 怎么进行的限制？
+
+通过java.lang.Runnable.run()方法声明(因为此方法声明上没有throw exception部分)进行了约束。
+
+## 如果在线程中抛出了线程会怎么样？
+
+线程会立即终结。
+
+## 现在我们可以怎样捕获线程中的异常？
+
+JDK5之后有了一个Thread.UncaughtExceptionHandler 新接口，它允许我们在每一个Thread对象上添加一个异常处理器。Thread.UncaughtExceptionHandler.uncaughtException()方法会在线程因未捕获的异常而面临死亡时被调用。
+
+### 使用方式
+
+首先我们要先定义这个线程异常捕获的处理器。
+
+```java
+public class MyUnchecckedExceptionhandler implements UncaughtExceptionHandler {
+    @Override
+    public void uncaughtException(Thread t, Throwable e) {
+        System.out.println("捕获异常处理方法：" + e);
+    }
+}
+```
+
+我们有三种方式使用该线程异常捕获器：
+
+#### 1.在创建线程的时候进行设置
+
+```java
+Thread t = new Thread(new ExceptionThread());
+t.setUncaughtExceptionHandler(new MyUnchecckedExceptionhandler());
+t.start();
+```
+
+#### 2.使用 Executors创建线程时，还可以在TreadFactory中设置
+
+```java
+ExecutorService exec = Executors.newCachedThreadPool(new ThreadFactory(){
+                    @Override
+            public Thread newThread(Runnable r) {
+                Thread thread = newThread(r);
+                thread.setUncaughtExceptionHandler(new MyUnchecckedExceptionhandler());
+                return thread;
+            }
+});
+exec.execute(new ExceptionThread());
+```
+
+#### 3.使用默认线程异常捕获器
+
+如果我们只需要一个线程异常处理器处理线程的异常，那么我们可以设置一个默认的线程异常捕获器，当线程出现异常时，如果我们没有指定线程的异常捕获器，而且线程组也没有设置(线程组不用考虑，因为这是一个不成功的尝试)，那么就会使用默认的线程异常捕获器。
+
+```java
+// 设置默认的线程异常捕获处理器
+Thread.setDefaultUncaughtExceptionHandler(new MyUnchecckedExceptionhandler());
+```
+
+
+通过以上方法就可以捕获并处理线程的异常了。

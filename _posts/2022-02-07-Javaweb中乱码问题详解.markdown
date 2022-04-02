@@ -1,0 +1,112 @@
+---
+layout: post
+read_time: true
+show_date: true
+title:  Javaweb中乱码问题详解
+subtitle: 保持青春的秘诀，是有一颗不安分的心。
+date:   2022-02-07 09:40:20 +0800
+description: javaweb 乱码 编码
+categories: [教程]
+tags: [javaweb,编码]
+author: tengjiang
+toc: yes
+---
+
+> 以下主要针对tomcat7及以下版本，从tomcat8开始，默认编码已变为UTF-8。
+
+## 为什么需要编码？
+
+由于人类的语言太多了，在计算机中表示这些语言的符号太多了，导致在计算机中无法通过一个基本的存储单元--字节来表示，
+
+所以我们就需要进行一些拆分和翻译工作，以使计算机可以理解我们的语言。
+
+## 计算机中都有哪些编码？
+
+ASCII码：共128个字符，用一个字节的低7位表示，0-31是控制字符，32-126是打印字符；
+
+ISO-88559-1：扩展了ASCII码，共256个字符，包含了大多数西欧编码，属于单字节编码；
+
+GB2312：双字节编码，编码范围A1-F7，A1-A9是符号区，共682符号，B0-F7是汉字区，包含6763汉字；
+
+GBK：扩展GB2312，编码范围8140-FEFE(不包含XX7F),共23940码位，能够表示21003个汉字，兼容GB2312;
+
+GB18030：可能是单字节，双字节，四字节编码，应用不广泛；
+
+UTF-16：每个字符用两个字节表示，可以表示所有符号，它大大简化了字符串的操作，故Java以UTF-16作为内存的字符存储格式；
+
+UTF-8：采用一种变长技术，相比UTF-16,存储空间变小了，而且可以减少网络传输的流量。
+
+> 最理想的中文编码方式是：**UTF-8**
+
+## HTTP请求中的编码问题？
+我们主要是按照http请求的流程来梳理一下在一个http请求和响应中间，都有哪些地方进行了编解码，从而在我们平时的项目中
+
+再遇到乱码问题更容易排查到问题的原因。（使用tomcat）
+
+- https://localhost:8080/project/test/首页?name=张三
+
+我们看上面的这个URL,我们看到在URI中含有中文，在参数中，也含有中文。
+
+### GET
+
+首先，在我们请求的时候，浏览器会对我们的请求进行编码，如果URL中存在非ASCII编码，浏览器会按以下规则进行编码：
+
+- URI中的字符(**首页**)使用浏览器的默认编码进行编码；
+- 请求参数(**张三**)会用本机默认编码进行编码，并且根据编码规范，会在被编码的字节前加%。
+
+请求到了tomcat中，如果不修改，tomcat会按以下规则进行解码：
+
+- URI中会默认使用ISO-8859-1解码；
+- 参数中会先查看header中的ContentType中定义的Charset，如果没有定义，就会在第一次调用requestParameter的时候使用默认的ISO-8859-1解码。
+
+不过我们可以通过配置文件修改默认tomcat的默认编码，
+
+```xml
+<Connector URIEncoding="UTF-8"/> 
+```
+
+不过这里需要注意的是，如果只是这样设置了，tomcat仅仅会使用该编码对**参数**中的信息进行解码，对于URI中的信息还是使用ISO-8859-1进行解码，所以我们需要改成如下配置：
+
+```xml
+<Connector URIEncoding="UTF-8" useBodyEncodingForURI="true"/>
+```
+
+这样就会对URI部分使用配置的编码进行解码，以上都是对于get请求而言。
+
+### POST
+对于post请求，它的参数的解码也是在第一次调用request.getParameter是进行的，而且post方式和get方式传递参数的方式不同，post是在HTTP的body中进行参数传输的。
+
+我们在页面提交的时候，浏览器会按照如下规则进行编码：
+
+- 对参数使用ContentType中的编码进行编码。
+
+服务端也用ContentType中的编码进行解码，而且，这个字符集编码我们可以通过代码进行设置：
+
+```java
+request.setCharacterEncoding(charset);
+```
+
+响应编码字符集还可以通过如下进行设置：
+
+```java
+response.setCharacterEncoding(charset);
+```
+
+它会覆盖request.setCharacterEncoding(charset)设置的值。并且会通过header的ContentType返回客户端，浏览器会通过该编码进行解码。
+
+数据返回的时候，浏览器解码规则如下：
+
+- 首先会通过Header中的ContentType中的charset进行解码；
+- 如果不存在，会寻找页面中的<meta>标签中有没有设置编码；
+- 如果还没有，就会使用浏览器默认的编码进行解码。
+
+对于post请求而言，如果不想每次都要通过request设置编码，也可以使用过滤器进行修改编码。但是都仅仅对post请求有效。
+
+### Header
+
+有时我们HTTP请求中，我们也会在header中携带一些信息，这里面的信息如果存在非ASCII字符，那么在接收端也需要进行解码，就像tomcat，在首次调用request.getHeader默认就是使用ISO-8859-1进行解码。
+
+**而且我们不能通过其他方式修改解码格式**，所以，如果header中存在非ASCII字符的话，首先通过URIEncoder进行编码，在添加到header中，不然很可能出现乱码。
+
+
+- 此文参考《深入分析JAVA WEB技术内幕》
