@@ -125,7 +125,7 @@ a {
  */
 blockquote {
   color: $grey-color;
-  border-left: 4px solid $green-color-light;
+  border-left: 4px solid #44ec38;
   padding-left: $spacing-unit / 2;
   @include relative-font-size(1.125);
   letter-spacing: -1px;
