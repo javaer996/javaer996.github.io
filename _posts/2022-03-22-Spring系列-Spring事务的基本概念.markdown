@@ -148,6 +148,10 @@ TransactionAttribute接口扩展了TransactionDefinition接口，增加了事务
 
 该类是一个Advisor，通过它我们可以将TransactionInterceptor注册为一个通知，其持有TransactionInterceptor和TransactionAttribute。不明白原理的可以看看之前的文章[Spring系列-Spring Aop实现原理分析](https://www.tengjiang.site/spring%E7%B3%BB%E5%88%97/2022/03/16/Spring%E7%B3%BB%E5%88%97-Spring-Aop%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90.html)。
 
+### @TransactionalEventListener
+
+事务事件监听器。该监听器可以通过phase属性配置监听的事务的阶段，在指定的阶段进行指定事件的通知处理。
+
 ## 各类的引用关系
 
 ```yaml
