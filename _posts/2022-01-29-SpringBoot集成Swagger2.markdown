@@ -6,7 +6,7 @@ title:  SpringBoot集成Swagger2?
 subtitle: 坚信自己，人生往往柳暗花明。
 date:   2022-01-29 17:35:20 +0800
 description: SpringBoot集成Swagger2步骤.
-categories: [教程]
+categories: [SpringBoot]
 tags: [springboot,swagger2]
 author: tengjiang
 toc: yes

@@ -6,7 +6,7 @@ title:  SpringBoot配置logback日志示例大全
 subtitle: 保持青春的秘诀，是有一颗不安分的心。
 date:   2022-02-07 15:35:20 +0800
 description: springboot logback
-categories: [教程]
+categories: [SpringBoot]
 tags: [springboot,logback]
 author: tengjiang
 toc: yes

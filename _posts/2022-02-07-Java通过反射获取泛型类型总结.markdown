@@ -6,7 +6,7 @@ title:  Java通过反射获取泛型类型总结
 subtitle: 耽搁你赶路的往往不是你脚下的坎儿、而是你鞋里的沙子。
 date:   2022-02-07 10:35:20 +0800
 description: java 反射 泛型
-categories: [教程]
+categories: [Java]
 tags: [java,反射,泛型]
 author: tengjiang
 toc: yes

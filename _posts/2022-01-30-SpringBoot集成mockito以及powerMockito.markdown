@@ -6,7 +6,7 @@ title:  SpringBoot集成mockito以及powerMockito
 subtitle: 再烦，也别忘记微笑^_^
 date:   2022-01-30 14:22:20 +0800
 description: SpringBoot集成mockito以及powerMockito.
-categories: [教程]
+categories: [SpringBoot]
 tags: [springboot,mockito]
 author: tengjiang
 toc: yes

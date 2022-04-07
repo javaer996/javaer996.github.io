@@ -6,7 +6,7 @@ title:  大白话讲解ThreadLocal
 subtitle: 态度决定高度，习惯主宰人生。
 date:   2022-02-07 13:35:20 +0800
 description: threadlocal ThreadLocal
-categories: [教程]
+categories: [Java]
 tags: [java,threadlocal]
 author: tengjiang
 toc: yes

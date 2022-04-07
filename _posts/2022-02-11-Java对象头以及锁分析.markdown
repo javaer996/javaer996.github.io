@@ -6,7 +6,7 @@ title:  Java对象头以及锁分析
 subtitle: 有智慧的人，努力的了解自己。
 date:   2022-02-11 10:32:20 +0800
 description: Java对象头 偏向锁 轻量级锁 重量级锁 重偏向 锁降级 
-categories: [教程]
+categories: [Java]
 tags: [java]
 author: tengjiang
 toc: yes

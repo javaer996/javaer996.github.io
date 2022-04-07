@@ -6,7 +6,7 @@ title:  Javaweb中乱码问题详解
 subtitle: 保持青春的秘诀，是有一颗不安分的心。
 date:   2022-02-07 09:40:20 +0800
 description: javaweb 乱码 编码
-categories: [教程]
+categories: [Javaweb]
 tags: [javaweb,编码]
 author: tengjiang
 toc: yes

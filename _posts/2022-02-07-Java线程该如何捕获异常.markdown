@@ -6,7 +6,7 @@ title:  Java线程该如何捕获异常
 subtitle: 不要让太多昨天占据你的今天。
 date:   2022-02-07 10:58:20 +0800
 description: java 线程 异常
-categories: [教程]
+categories: [Java]
 tags: [java,线程]
 author: tengjiang
 toc: yes

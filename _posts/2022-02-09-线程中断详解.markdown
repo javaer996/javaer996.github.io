@@ -6,7 +6,7 @@ title:  线程中断详解
 subtitle: 拥有理想只是一种智力，实现理想才是一种能力。
 date:   2022-02-09 09:06:20 +0800
 description: java线程中断详解
-categories: [教程]
+categories: [Java]
 tags: [java,线程]
 author: tengjiang
 toc: yes
