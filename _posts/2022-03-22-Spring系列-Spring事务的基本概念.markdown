@@ -6,8 +6,8 @@ title:  Spring系列-Spring事务的基本概念
 subtitle: 多一分心力去注意别人、就少一分心力反省自己。
 date:   2022-03-22 15:45:20 +0800
 description: Spring系列-Spring事务的基本概念
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

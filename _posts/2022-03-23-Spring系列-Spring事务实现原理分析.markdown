@@ -6,8 +6,8 @@ title:  Spring系列-Spring事务实现原理分析
 subtitle: 一个频频回头的人，是走不了远路的。
 date:   2022-03-23 14:35:20 +0800
 description: Spring系列-Spring事务实现原理分析
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

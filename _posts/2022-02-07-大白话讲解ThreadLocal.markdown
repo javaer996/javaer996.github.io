@@ -7,7 +7,7 @@ subtitle: 态度决定高度，习惯主宰人生。
 date:   2022-02-07 13:35:20 +0800
 description: threadlocal ThreadLocal
 categories: [Java]
-tags: [java,threadlocal]
+tags: [java]
 author: tengjiang
 toc: yes
 ---

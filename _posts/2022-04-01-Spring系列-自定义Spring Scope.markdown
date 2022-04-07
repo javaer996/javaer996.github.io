@@ -6,8 +6,8 @@ title:  Spring系列-自定义Spring Scope
 subtitle: 请把努力当成一种习惯，而不是三分钟热度。
 date:   2022-04-01 10:42:20 +0800
 description: Spring Scope @Scope
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

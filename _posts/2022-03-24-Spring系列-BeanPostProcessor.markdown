@@ -6,8 +6,8 @@ title:  Spring系列-BeanPostProcessor详解
 subtitle: 每天都要快乐，就当为了自己。
 date:   2022-03-24 12:38:20 +0800
 description: BeanFactoryPostProcessor MergedBeanDefinitionPostProcessor InstantiationAwareBeanPostProcessor SmartInstantiationAwareBeanPostProcessor DestructionAwareBeanPostProcessor
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

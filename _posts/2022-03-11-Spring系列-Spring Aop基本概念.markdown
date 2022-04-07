@@ -6,8 +6,8 @@ title:  Spring系列-Spring Aop基本概念
 subtitle: 要先把手放开，才抓得住精彩旳未来。
 date:   2022-03-11 16:39:20 +0800
 description: Spring系列-Spring Aop基本概念 AspectJ 动态代理
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

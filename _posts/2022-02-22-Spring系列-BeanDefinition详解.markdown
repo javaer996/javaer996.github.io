@@ -6,8 +6,8 @@ title:  Spring系列-Spring的BeanDefinition详解
 subtitle: 停泊，只是为了走得更远。
 date:   2022-02-22 04:28:20 +0800
 description: Spring的BeanDefinition详解，分析每一个字段的作用
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

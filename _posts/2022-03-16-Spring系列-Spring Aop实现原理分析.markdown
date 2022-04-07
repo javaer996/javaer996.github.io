@@ -6,8 +6,8 @@ title:  Spring系列-Spring Aop实现原理分析
 subtitle: 幸福五大原则：心中无恨，脑中无忧，生活简单，多些付出，少些期待。
 date:   2022-03-16 12:45:20 +0800
 description: Spring系列-Spring Aop实现原理分析 AspectJ JDK动态代理 CGLIB动态代理
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

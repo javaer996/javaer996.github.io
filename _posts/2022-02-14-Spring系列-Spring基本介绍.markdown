@@ -6,8 +6,8 @@ title:  Spring系列-Spring基础介绍
 subtitle: 每一分钟的愤怒，都会损失60秒钟的快乐。
 date:   2022-02-14 09:32:20 +0800
 description: Spring基础介绍包括Spring基础接口使用介绍
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

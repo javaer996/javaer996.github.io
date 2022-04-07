@@ -7,7 +7,7 @@ subtitle: 耽搁你赶路的往往不是你脚下的坎儿、而是你鞋里的�
 date:   2022-02-07 10:35:20 +0800
 description: java 反射 泛型
 categories: [Java]
-tags: [java,反射,泛型]
+tags: [java]
 author: tengjiang
 toc: yes
 ---

@@ -6,8 +6,8 @@ title:  Spring系列-Spring事件机制详解
 subtitle: 发光并非太阳的专利，你也可以发光。
 date:   2022-04-06 18:02:20 +0800
 description: Spring事件 ApplicationEvent @EventListener ApplicationListener applicationEventMulticaster
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

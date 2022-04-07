@@ -6,8 +6,8 @@ title:  Spring系列-BeanFactoryPostProcessor详解
 subtitle: 人生三修炼：看得透想得开，拿得起放得下，立得正行得直。
 date:   2022-03-24 12:38:20 +0800
 description: BeanFactoryPostProcessor BeanDefinitionRegistryPostProcessor
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

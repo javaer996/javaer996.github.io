@@ -6,8 +6,8 @@ title: 一文解决内存屏障
 subtitle: 再累，也要爱自己^_^
 date:   2022-02-01 10:38:00 +0800
 description: volatile,java,内存屏障
-categories: [Java]
-tags: [java,volatile,内存屏障]
+categories: [JVM]
+tags: [java,jvm,volatile]
 author: tengjiang
 toc: yes
 ---

@@ -7,7 +7,7 @@ subtitle: 人生的道路上，你没有耐心去等待成功，那么你只有�
 date:   2022-02-09 10:11:20 +0800
 description: SpringBoot集成ldap分页查询AD域用户信息
 categories: [SpringBoot]
-tags: [springboot,ldap]
+tags: [springboot, ldap]
 author: tengjiang
 toc: yes
 ---

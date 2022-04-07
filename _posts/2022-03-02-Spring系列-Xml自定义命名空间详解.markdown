@@ -6,8 +6,8 @@ title:  Spring系列-Xml自定义命名空间详解
 subtitle: 使人成熟的是经历，而不是岁月。
 date:   2022-03-02 13:46:20 +0800
 description: Spring系列-Xml自定义命名空间详解
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

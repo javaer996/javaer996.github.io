@@ -6,8 +6,8 @@ title:  volatile底层是怎么回事？
 subtitle: 如果没人认可你，那就自己认可自己。
 date:   2022-02-01 10:23:20 +0800
 description: volatile底层, JMM, MESI
-categories: [Java]
-tags: [java,volatile]
+categories: [JVM]
+tags: [java,volatile,jvm]
 author: tengjiang
 toc: yes
 ---

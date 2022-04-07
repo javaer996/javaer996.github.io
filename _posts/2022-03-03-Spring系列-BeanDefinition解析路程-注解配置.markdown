@@ -6,8 +6,8 @@ title:  Spring系列-BeanDefinition解析流程-注解配置
 subtitle: 不要因为一次挫败，就忘记你远大的理想。
 date:   2022-03-03 14:28:20 +0800
 description: Spring系列-BeanDefinition解析流程-注解配置
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

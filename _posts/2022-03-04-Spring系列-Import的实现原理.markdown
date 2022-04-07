@@ -6,8 +6,8 @@ title:  Spring系列-Import的实现原理
 subtitle: 给别人的生命带来阳光的人，自己也会享有阳光。
 date:   2022-03-04 13:34:20 +0800
 description: Spring系列-Import实现原理 @Import ImportAware
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---

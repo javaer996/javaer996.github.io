@@ -6,8 +6,8 @@ title:  Spring系列-Spring循环依赖详解
 subtitle: 不要去等待完美的时刻，把握好现在，让此刻变完美。
 date:   2022-03-25 10:22:20 +0800
 description: Spring 循环依赖 三级缓存
-categories: [Spring系列]
-tags: [spring]
+categories: [Spring]
+tags: [spring, Spring系列]
 author: tengjiang
 toc: yes
 ---
