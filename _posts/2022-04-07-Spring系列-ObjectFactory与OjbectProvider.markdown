@@ -2,7 +2,7 @@
 layout: post
 read_time: true
 show_date: true
-title:  2022-04-07-Spring系列-ObjectFactory与OjbectProvider
+title:  Spring系列-ObjectFactory与OjbectProvider
 subtitle: 你只管努力，剩下的交给时间。
 date:   2022-04-07 15:13:20 +0800
 description: ObjectFactory ObjectProvider
