@@ -1,0 +1,260 @@
+---
+layout: post
+read_time: true
+show_date: true
+title:  Arthas的介绍和使用
+subtitle: 与其临渊羡鱼，不如退而结网。
+date:   2022-07-27 14:57:20 +0800
+description: Arthas skywalking alpine tini.
+categories: [容器, 教程]
+tags: [Arthas, skywalking, linux]
+author: tengjiang
+# github: amaynez/TicTacToe/blob/7bf83b3d5c10adccbeb11bf244fe0af8d9d7b036/entities/Neural_Network.py#L199
+# mathjax: yes # leave empty or erase to prevent the mathjax javascript from loading
+toc: yes # leave empty or erase for no TOC
+---
+
+## Arthas是什么？
+
+Arthas 是一款线上监控诊断产品，通过全局视角实时查看应用 load、内存、gc、线程的状态信息，并能在不修改应用代码的情况下，对业务问题进行诊断，包括查看方法调用的出入参、异常，监测方法执行耗时，类加载信息等，大大提升线上问题排查效率。
+
+## Arthas（阿尔萨斯）能为你做什么？
+
+`Arthas` 是 Alibaba 开源的 Java 诊断工具，深受开发者喜爱。
+
+当你遇到以下类似问题而束手无策时，`Arthas`可以帮助你解决：
+
+1. 这个类从哪个 jar 包加载的？为什么会报各种类相关的 Exception？
+2. 我改的代码为什么没有执行到？难道是我没 commit？分支搞错了？
+3. 遇到问题无法在线上 debug，难道只能通过加日志再重新发布吗？
+4. 线上遇到某个用户的数据处理有问题，但线上同样无法 debug，线下无法重现！
+5. 是否有一个全局视角来查看系统的运行状况？
+6. 有什么办法可以监控到 JVM 的实时运行状态？
+7. 怎么快速定位应用的热点，生成火焰图？
+8. 怎样直接从 JVM 内查找某个类的实例？
+
+`Arthas` 支持 JDK 6+，支持 Linux/Mac/Windows，采用命令行交互模式，同时提供丰富的 `Tab` 自动补全功能，进一步方便进行问题的定位和诊断。
+
+## 在容器中的Alpine系统如何安装Arthas？
+
+ **在容器中的Alpine系统中，如果想要能使用Arthas程序，我们需要让我们的java程序不是1号进程，因为liunx系统中的1~5号进程是特殊进程，不允许我们做这些操作。**
+
+ 那么我们该如何处理呢？**使用tini启动。**
+
+ tini是一个用于容器的init系统，它会创建一个init进程，init进程的PID=1, 是所有用户进程的祖先，它有如下几个功能：
+
+ - 启动守护进程
+ - 回收僵尸/孤儿进程
+ - 将操作系统信号转发给子进程
+
+ **注意：如果不存在该问题可跳过1-3步。**
+
+### 1. 在容器镜像中安装tini
+
+```dockerfile
+FROM openjdk:8-jdk-alpine
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+RUN apk add tini
+```
+
+### 2. 构建镜像
+
+```shell
+docker build -t openjdk:8-jdk-alpine-tini .
+```
+
+### 3. 修改容器启动方式
+
+```shell
+# 使用我们刚构建的镜像
+FROM openjdk:8-jdk-alpine-tini
+
+...
+# 通过tini启动
+ENTRYPOINT exec /sbin/tini -- java  -Djava.security.egd=file:/dev/./urandom -jar /server.jar
+```
+
+### 4. 更新apk
+
+```shell
+apk update
+```
+
+**如果速度太慢，可以切换为国内源：**
+
+```shell
+sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+```
+
+### 5. 安装curl
+
+```shell
+apk add curl
+```
+
+### 6. 下载Arthas包
+
+```shell
+curl -O https://arthas.aliyun.com/arthas-boot.jar
+```
+
+### 7. 启动Arthas
+
+```shell
+java -jar arthas-boot.jar
+```
+
+**启动日志：**
+
+```shell
+[INFO] arthas-boot version: 3.6.3
+[INFO] Found existing java process, please choose one and input the serial number of the process, eg : 1. Then hit ENTER.
+
+* [1]: 6 /server.jar
+```
+
+> **此时程序会打印出所有java进程并停在这里等待你选择一个进程。这里只有一个进程[1], 所以我们可以输入数字 1 ，然后回车。**
+
+```shell
+[INFO] arthas-boot version: 3.6.3
+[INFO] Found existing java process, please choose one and input the serial number of the process, eg : 1. Then hit ENTER.
+
+* [1]: 6 /server.jar
+1
+[INFO] arthas home: /root/.arthas/lib/3.6.2/arthas
+[INFO] Try to attach process 6
+[INFO] Attach process 6 success.
+[INFO] arthas-client connect 127.0.0.1 3658
+  ,---.  ,------. ,--------.,--.  ,--.  ,---.   ,---.
+ /  O  \ |  .--. ''--.  .--'|  '--'  | /  O  \ '   .-'
+|  .-.  ||  '--'.'   |  |   |  .--.  ||  .-.  |`.  `-.
+|  | |  ||  |\  \    |  |   |  |  |  ||  | |  |.-'    |
+`--' `--'`--' '--'   `--'   `--'  `--'`--' `--'`-----'
+
+wiki       https://arthas.aliyun.com/doc
+tutorials  https://arthas.aliyun.com/doc/arthas-tutorials.html
+version    3.6.2
+main_class
+pid        6
+time       2022-07-27 11:13:56
+```
+
+> 如上，如果日志输出ARTHAS标识，说明我们已经成功Attach到我们指定的这个java进程上。
+
+## Arthas的基本使用
+
+### help
+
+列出Arthas支持的所有命令。
+
+### dashboard
+
+当前系统的实时数据面板。
+
+### heapdump
+
+dump java heap, 类似jmap命令的heap dump功能。
+
+### jvm
+
+查看当前 JVM 的信息。
+
+### memory
+
+查看 JVM 的内存信息。
+
+### logger
+
+查看和修改 logger。（可以修改日志输出级别）
+
+```shell
+# 首先通过logger命令获取日志相关信息
+$ logger
+name                              ROOT
+class                             ch.qos.logback.classic.Logger
+classLoader                       org.springframework.boot.loader.LaunchedURLClassLoader@1bdaa23d
+classLoaderHash                   1bdaa23d
+level                             INFO
+effectiveLevel                    INFO
+additivity                        true
+codeSource                        jar:file:/server.jar!/BOOT-INF/lib/logback-classic-1.2.3.jar!/
+appenders                         name            stdout
+                                  class           ch.qos.logback.core.ConsoleAppender
+                                  classLoader     org.springframework.boot.loader.LaunchedURLClassLoader@1bdaa23d
+                                  classLoaderHash 1bdaa23d
+                                  target          System.out
+                                  name            logfile
+                                  class           ch.qos.logback.core.rolling.RollingFileAppender
+                                  classLoader     org.springframework.boot.loader.LaunchedURLClassLoader@1bdaa23d
+                                  classLoaderHash 1bdaa23d
+                                  file            ../logs/server/server.2022-07-27.log
+# 关注上面的name、classLoaderHash属性，修改日志级别需要用到
+$ logger -c 1bdaa23d -n ROOT -l debug  # 将日志级别修改为debug
+```
+
+### monitor
+
+方法执行监控，可以统计一定时间周期内的成功失败情况。
+
+```shell
+monitor com.demo.TestController getUser  # montor 全类名 方法名
+```
+
+### stack
+
+输出当前方法被调用的调用路径，类似于异常堆栈。
+
+```shell
+stack com.demo.TestController getUser  # stack 全类名 方法名
+```
+
+### trace
+
+方法内部调用路径，并输出方法路径上的每个节点上耗时。
+
+```shell
+trace com.demo.TestController getUser  # stack 全类名 方法名
+```
+
+### tt
+
+方法执行数据的时空隧道，记录下指定方法每次调用的入参和返回信息，并能对这些不同的时间下调用进行观测。
+
+```shell
+tt -t *Controller get*  # stack 全类名 方法名
+```
+
+### watch
+
+方法执行数据观测，让你能方便的观察到指定函数的调用情况。能观察到的范围为：`返回值`、`抛出异常`、`入参`，通过编写 OGNL 表达式进行对应变量的查看。
+
+```shell
+watch com.demo.TestController getUser '{params,returnObj}' # stack 全类名 方法名 观察表达式
+```
+
+更多命令详情：[点击查看](https://arthas.aliyun.com/doc/commands.html)
+
+## Arthas使用异常
+
+当出现以下错误日志：
+
+- java.lang.ClassFormatError: null
+
+- java.lang.UnsupportedOperationException: class redefinition failed: attempted to change the schema (add/remove fields)
+
+通常情况下都是被其他字节码工具修改过与arthas修改字节码不兼容。
+
+比如: 使用 skywalking V8.1.0 以下版本 无法trace、watch 被skywalking agent 增强过的类, V8.1.0 以上版本可以兼容使用。
+
+## Arthas与skywalking兼容使用
+
+修改skywalking agent配置：
+
+```properties
+# 如果为true，SkyWalking代理将把所有检测到的类文件缓存到内存或磁盘文件中（由类缓存模式决定），允许其他javaagent增强那些由SkyWalking agent增强的类。
+agent.is_cache_enhanced_class=true
+# 插入指令的类缓存模式：内存或文件
+# MEMORY：将类字节缓存到内存中，如果插入指令的类太多或太大，则可能会占用更多内存
+# FILE：在“/class cache”文件夹中缓存类字节，当应用程序退出时自动清理缓存的类文件
+agent.class_cache_mode=MEMORY
+```
