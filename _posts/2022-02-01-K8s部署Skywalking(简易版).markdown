@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  k8s部署Skywalking(简易版)
-subtitle: 后悔过去，不如奋斗将来。
+subtitle: 
 date:   2022-02-01 08:58:20 +0800
 description: k8s(kubernetes)部署Skywalking(简易版)
 categories: [K8S]

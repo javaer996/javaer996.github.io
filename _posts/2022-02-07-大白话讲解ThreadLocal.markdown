@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  大白话讲解ThreadLocal
-subtitle: 态度决定高度，习惯主宰人生。
+subtitle: 
 date:   2022-02-07 13:35:20 +0800
 description: threadlocal ThreadLocal
 categories: [Java]

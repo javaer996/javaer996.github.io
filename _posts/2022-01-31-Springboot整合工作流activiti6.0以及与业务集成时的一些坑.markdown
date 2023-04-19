@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  Springboot整合工作流activiti6.0以及与业务集成时的一些坑
-subtitle: 再苦，也别忘坚持^_^
+subtitle: 
 date:   2022-01-31 12:33:20 +0800
 description: Springboot整合工作流activiti6.0以及与业务集成时的一些坑.
 categories: [SpringBoot]

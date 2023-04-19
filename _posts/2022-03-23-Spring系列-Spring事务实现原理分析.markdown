@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  Spring系列-Spring事务实现原理分析
-subtitle: 一个频频回头的人，是走不了远路的。
+subtitle: 
 date:   2022-03-23 14:35:20 +0800
 description: Spring系列-Spring事务实现原理分析
 categories: [Spring]

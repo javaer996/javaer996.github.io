@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  Java内部类总结
-subtitle: 人之所以平凡、在于难超越自己。
+subtitle: 
 date:   2022-02-07 17:11:20 +0800
 description: java内部类总结
 categories: [Java]

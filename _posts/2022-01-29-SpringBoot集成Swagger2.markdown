@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  SpringBoot集成Swagger2?
-subtitle: 坚信自己，人生往往柳暗花明。
+subtitle: 
 date:   2022-01-29 17:35:20 +0800
 description: SpringBoot集成Swagger2步骤.
 categories: [SpringBoot]

@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  Spring系列-依赖注入实现原理-XML配置
-subtitle: 删除昨天的烦恼，确定今天的快乐，设置明天的幸福。
+subtitle: 
 date:   2022-03-08 15:16:20 +0800
 description: Spring系列-依赖注入实现原理-XML配置 自动注入
 categories: [Spring]

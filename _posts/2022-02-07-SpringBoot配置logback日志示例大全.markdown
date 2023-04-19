@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  SpringBoot配置logback日志示例大全
-subtitle: 保持青春的秘诀，是有一颗不安分的心。
+subtitle: 
 date:   2022-02-07 15:35:20 +0800
 description: springboot logback
 categories: [SpringBoot]

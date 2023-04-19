@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  Spring集成seata并通过CICD发布
-subtitle: 不要总把自己与别人比，做个最好的自己！
+subtitle: 
 date:   2022-01-30 17:40:20 +0800
 description: Spring集成seata并通过CICD发布.
 categories: [Spring]
