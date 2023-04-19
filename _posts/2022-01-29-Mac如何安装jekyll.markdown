@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  Mac如何安装jekyll?
-subtitle: 再长的路，一步步也能走完；再短的路，不迈开双脚也无法到达。
+subtitle: 
 date:   2022-01-29 10:19:20 +0800
 description: 记录Mac安装jekyll遇到的问题以及解决方式.
 categories: [Mac]
@@ -36,6 +36,17 @@ toc: yes # leave empty or erase for no TOC
 
    ```shell
    rvm install ruby-3.0.0   // 安装最新的ruby软件（我安装的是3.0.0）
+   ```
+> 注意：如果安装ruby-3.0.0报错，可以使用该命令安装`rvm install ruby-3.0.0 --with-openssl-dir='brew --prefix openssl'`。错误如下：
+
+   ```text
+   Error running ' CFLAGS=-O3 -I/usr/local/opt/libyaml/include -I/usr/local/opt/libksba/include -I/usr/local/opt/readline/include -I/usr/local/opt/
+   zlib/include -I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/libyaml/include -I/usr/local/opt/libksba/include -I/usr/local/opt/readline/
+   include -I/usr/local/opt/zlib/include -I/usr/local/opt/openssl@1.1/include LDFLAGS=-L/usr/local/opt/libyaml/lib -L/usr/local/opt/libksba/lib -L/
+   usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/libksba/lib
+   -L/usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl@1.1/lib ./configure --prefix=/Users/name/.rvm/rubies/ruby-3.0.0
+   --disable-install-doc --enable-shared', please read /Users/name/.rvm/log/1615658870_ruby-3.0.0/configure.log There has been an error while
+   running configure. Halting the installation.
    ```
 
 3. 切换ruby为我们刚安装的版本
@@ -107,6 +118,7 @@ jekyll server
 >    的/Applications/[Xcode](https://so.csdn.net/so/search?q=Xcode&spm=1001.2101.3001.7020).app/Contents/Developer/Platforms/MacOSX.platform
 >    
 >    /Developer/SDKs/MacOSX.sdk/usr/include/文件夹下即可。
+> 3. 如果仍然报错，执行`gem install eventmachine -v 1.2.7 -- --with-cppflags=-I/usr/local/opt/openssl/include`命令，其中的1.2.7替换为你需要的版本。
 
 ### 3. 使用rvm use xxx报错RVM is not a function
 > **解决方案：**
