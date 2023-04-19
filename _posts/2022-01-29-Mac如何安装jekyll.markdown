@@ -94,6 +94,7 @@ toc: yes # leave empty or erase for no TOC
 解析主题压缩包，进入主题文件夹，执行以下指令：
 
 ```shell
+bundle install
 jekyll server
 ```
 
@@ -118,7 +119,9 @@ jekyll server
 >    的/Applications/[Xcode](https://so.csdn.net/so/search?q=Xcode&spm=1001.2101.3001.7020).app/Contents/Developer/Platforms/MacOSX.platform
 >    
 >    /Developer/SDKs/MacOSX.sdk/usr/include/文件夹下即可。
-> 3. 如果仍然报错，执行`gem install eventmachine -v 1.2.7 -- --with-cppflags=-I/usr/local/opt/openssl/include`命令，其中的1.2.7替换为你需要的版本。
+> 3. 如果仍然报错，执行`brew link --force openssl`。
+> 4. 如果仍然报错，执行`gem install eventmachine -v 1.2.7 -- --with-cppflags=-I/usr/local/opt/openssl/include`命令，其中的1.2.7替换为你需要的版本，/usr/local/opt/openssl/include
+     替换为通过`brew info openssl`得到的openssl的路径。
 
 ### 3. 使用rvm use xxx报错RVM is not a function
 > **解决方案：**
